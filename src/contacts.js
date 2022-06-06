@@ -15,13 +15,8 @@ function addContacts() {
 }
 
 contacts.addEventListener("scroll", (e) => {
-  const itemOffsets = items.map((item) => item.offsetTop);
-  const topItemIndex = itemOffsets.findIndex(
-    (offset) => contacts.scrollTop - offset <= -18
-  );
-  if (topItemIndex !== -1) {
-    stickyHeader.textContent = items[topItemIndex].textContent;
-  }
+  let currentTopIndex = contacts.scrollTop / 18;
+  stickyHeader.textContent = items[currentTopIndex].textContent;
 });
 
 addContacts();
